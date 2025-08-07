@@ -1,0 +1,10 @@
+/* styles/globals.css */
+@import "tailwindcss";
+
+:root {
+  --font-geist-mono: 'Geist Mono', monospace;
+}
+
+body {
+  font-family: var(--font-geist-mono), sans-serif;
+}
