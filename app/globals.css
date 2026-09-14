@@ -1,0 +1,25 @@
+/* styles/globals.css */
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+/*
+ * tailwind.config.js's theme.extend.colors (lightHover/darkHover/darkTheme)
+ * isn't reliably picked up by Tailwind v4's legacy-config compat layer for
+ * camelCase color keys, even via @config above (darkMode + fontFamily from
+ * the same config DO work). Defining them natively here guarantees the
+ * utilities actually generate. Class names are kebab-case per Tailwind v4
+ * convention: bg-light-hover, bg-dark-hover, bg-dark-theme.
+ */
+@theme {
+  --color-light-hover: #fcf4ff;
+  --color-dark-hover: #2a004a;
+  --color-dark-theme: #11001f;
+}
+
+:root {
+  --font-geist-mono: 'Geist Mono', monospace;
+}
+
+body {
+  font-family: var(--font-geist-mono), sans-serif;
+}
