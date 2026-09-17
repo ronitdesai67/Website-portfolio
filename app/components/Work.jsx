@@ -45,6 +45,14 @@ const Work = () => {
                             {/* Overlay for better text readability */}
                             <div className='absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300'></div>
 
+                            {/* Only shows once a deployed URL is filled into liveUrls in assets.js */}
+                            {project.liveUrl && (
+                                <span className='absolute top-4 right-4 flex items-center gap-1.5 bg-white/95 text-black rounded-full pl-2.5 pr-3 py-1 text-xs font-medium shadow-md'>
+                                    <span className='w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse' />
+                                    Live demo
+                                </span>
+                            )}
+
                             {/* Project info card */}
                             <div className='bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7 shadow-lg'>
                                 <div>

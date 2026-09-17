@@ -76,6 +76,20 @@ export const assets = {
     right_arrow_bold_dark
 };
 
+// ---------------------------------------------------------------------------
+// Deployed demo URLs. Each case study is its own Vercel project (client +
+// API on one domain), so this is the only place the site needs to know about
+// them: paste a URL here and that project's card and detail page switch from
+// "coming soon" to a live link automatically.
+// ---------------------------------------------------------------------------
+export const liveUrls = {
+    teampulse: '',
+    launchstack: '',
+    documind: '',
+    syncflow: '',
+    pulseboard: '',
+};
+
 export const workData = [
     {
         slug: 'teampulse',
@@ -86,14 +100,14 @@ export const workData = [
         client: 'Northbeam Logistics (case study)',
         problem: "Northbeam's ops team tracked attendance and leave in a shared spreadsheet that broke down past 15 employees — no audit trail on approvals, no role separation, no visibility into attendance trends without manual pivot tables.",
         solution: 'A multi-tenant HR dashboard with server-enforced role-based access (Admin/Manager/Employee), a full leave-request approval workflow that auto-updates leave balances, attendance check-in/out with automatic late detection, and a company-wide analytics dashboard built from real aggregated data.',
-        stack: ['Node.js', 'Express', 'Prisma', 'SQLite', 'React', 'Vite', 'Tailwind CSS', 'Recharts', 'JWT auth'],
+        stack: ['Node.js', 'Express', 'Prisma', 'PostgreSQL', 'React', 'Vite', 'Tailwind CSS', 'Recharts', 'JWT auth', 'Vercel'],
         highlights: [
             'Role checks enforced at the API layer, not just hidden in the UI',
             'Dashboard stats fall back to the most recent working day so the demo never looks empty on weekends',
             'Public demo self-heals on a schedule so visitor changes never pile up',
         ],
         demoLogin: { email: 'priya.nair@northbeam.io', password: 'demo1234', note: 'one-click quick-fill for Admin / Manager / Employee on the login screen' },
-        liveUrl: '',
+        liveUrl: liveUrls.teampulse,
         repoUrl: 'https://github.com/ronitdesai67/teampulse',
     },
     {
@@ -105,14 +119,14 @@ export const workData = [
         client: 'Loomstack (case study)',
         problem: 'An early-stage startup needed to stop hand-rolling auth and team management for every new feature and start onboarding paying customers instead of building infrastructure.',
         solution: 'A working SaaS shell with real signup (a visitor can create a brand-new organization end to end), team invites with shareable links, role-based permissions (Owner/Admin/Member) enforced server-side, and a simulated billing ledger with plan upgrades and invoice history — clearly labeled as a demo, with a real Stripe integration point documented for production.',
-        stack: ['Node.js', 'Express', 'Prisma', 'SQLite', 'React', 'Vite', 'Tailwind CSS', 'Recharts', 'JWT auth'],
+        stack: ['Node.js', 'Express', 'Prisma', 'PostgreSQL', 'React', 'Vite', 'Tailwind CSS', 'Recharts', 'JWT auth', 'Vercel'],
         highlights: [
             'Public signup flow is fully functional, not a mockup — try it yourself',
             'Server-side RBAC verified with curl: a Member genuinely gets 403 on billing actions',
             'Billing is honestly labeled as simulated, with the real Stripe integration point documented',
         ],
         demoLogin: { email: 'mara.whitfield@loomstack.io', password: 'demo1234', note: 'one-click quick-fill for Owner / Admin / Member, or sign up as a new org' },
-        liveUrl: '',
+        liveUrl: liveUrls.launchstack,
         repoUrl: 'https://github.com/ronitdesai67/launchstack',
     },
     {
@@ -124,14 +138,14 @@ export const workData = [
         client: 'Redlyne (case study)',
         problem: 'A legal-tech startup wanted an AI contract-review feature as their core product differentiator, without the operating risk of an uncapped public AI demo racking up API costs.',
         solution: 'A hybrid answer pipeline: hand-verified sample Q&A for a library of real sample contracts (fuzzy-matched so rephrased questions still work), a genuine live Claude API integration that activates only if an API key is added, and an extractive fallback that finds the closest matching clause in any custom-uploaded document. Every answer is labeled by source so it never overstates its own authority.',
-        stack: ['Node.js', 'Express', 'Prisma', 'SQLite', 'React', 'Vite', 'Tailwind CSS', '@anthropic-ai/sdk', 'multer', 'pdf-parse'],
+        stack: ['Node.js', 'Express', 'Prisma', 'PostgreSQL', 'React', 'Vite', 'Tailwind CSS', 'Vercel', '@anthropic-ai/sdk', 'multer', 'pdf-parse'],
         highlights: [
             'Free to run publicly forever, with a real AI code path ready to switch on',
             'Rate-limited ask endpoint (30 req/IP/hour) protects against cost abuse if a live key is ever added',
             'Every chat answer is tagged — sample, AI-generated, or closest-matching-section — for full transparency',
         ],
         demoLogin: { email: 'demo@documind.io', password: 'demo1234', note: 'one-click quick-fill on the login screen' },
-        liveUrl: '',
+        liveUrl: liveUrls.documind,
         repoUrl: 'https://github.com/ronitdesai67/documind',
     },
     {
@@ -143,14 +157,14 @@ export const workData = [
         client: 'Fieldstream Logistics (case study)',
         problem: 'An ops-heavy company was manually copy-pasting data between tools and needed a lightweight automation layer — without the security exposure that a "call any URL from our server" feature usually implies.',
         solution: 'A workflow builder with three real trigger types (public webhook, cron schedule, manual run) and safe step types (HTTP request, payload transform, delay, log) — backed by an SSRF-hardened outbound HTTP executor that resolves and validates the destination IP before every call, on every trigger path, with rate limiting and hard timeouts.',
-        stack: ['Node.js', 'Express', 'Prisma', 'SQLite', 'node-cron', 'React', 'Vite', 'Tailwind CSS'],
+        stack: ['Node.js', 'Express', 'Prisma', 'PostgreSQL', 'node-cron', 'React', 'Vite', 'Tailwind CSS', 'Vercel'],
         highlights: [
             'SSRF defense verified directly: requests to loopback, link-local/cloud-metadata, and localhost are all blocked with clear run-log errors',
             'A real public webhook URL + ready-to-copy curl command — trigger it yourself and watch the run appear',
             'Cron interval and delay values are clamped server-side, not just validated in the UI',
         ],
         demoLogin: { email: 'ops@fieldstream.io', password: 'demo1234', note: 'one-click quick-fill on the login screen' },
-        liveUrl: '',
+        liveUrl: liveUrls.syncflow,
         repoUrl: 'https://github.com/ronitdesai67/syncflow',
     },
     {
@@ -162,14 +176,14 @@ export const workData = [
         client: 'Driftwell (case study)',
         problem: "A startup wanted to show its own users' usage back to them without paying for a full analytics platform, and needed a real ingestion pipeline to prove the concept.",
         solution: 'A per-project analytics dashboard computed from real stored events — not pre-baked chart data — fed by a public, API-key-authenticated ingestion endpoint. Includes a time-series chart, top-events breakdown, a live "send a test event" panel with a copyable curl command, and CSV export.',
-        stack: ['Node.js', 'Express', 'Prisma', 'SQLite', 'React', 'Vite', 'Tailwind CSS', 'Recharts', 'express-rate-limit'],
+        stack: ['Node.js', 'Express', 'Prisma', 'PostgreSQL', 'React', 'Vite', 'Tailwind CSS', 'Recharts', 'Vercel', 'express-rate-limit'],
         highlights: [
             'Aggregation queries run against real Event rows per project — switching projects visibly changes every chart',
             'Public ingestion endpoint enforces payload size caps, API-key auth, and per-key + per-IP rate limiting',
             'CSV export and the live test-event panel both hit real endpoints, not sample data',
         ],
         demoLogin: { email: 'dev@driftwell.io', password: 'demo1234', note: 'one-click quick-fill on the login screen' },
-        liveUrl: '',
+        liveUrl: liveUrls.pulseboard,
         repoUrl: 'https://github.com/ronitdesai67/pulseboard',
     },
 ]
