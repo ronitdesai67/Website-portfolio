@@ -83,11 +83,11 @@ export const assets = {
 // "coming soon" to a live link automatically.
 // ---------------------------------------------------------------------------
 export const liveUrls = {
-    teampulse: '',
-    launchstack: '',
-    documind: '',
-    syncflow: '',
-    pulseboard: '',
+    teampulse: 'https://teampulse-woad.vercel.app',
+    launchstack: 'https://launchstack-sigma.vercel.app',
+    documind: 'https://documind-omega-nine.vercel.app',
+    syncflow: 'https://syncflow-eight-gray.vercel.app',
+    pulseboard: 'https://pulseboard-ten-rho.vercel.app',
 };
 
 export const workData = [
